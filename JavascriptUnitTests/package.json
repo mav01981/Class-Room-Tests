@@ -1,0 +1,14 @@
+{
+  "name": "javascript-unit-tests",
+  "version": "0.0.0",
+  "description": "JavascriptUnitTests",
+  "scripts": {
+    "start": "node server"
+  },
+  "engines": {
+    "node": "~6.10.x"
+  },
+  "author": {
+    "name": "JonathanSmart"
+  }
+}
