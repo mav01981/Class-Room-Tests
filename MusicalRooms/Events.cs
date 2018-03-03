@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -76,12 +75,6 @@ namespace MusicalRooms
                                         Output.Add($"{person.FullName} has moved to the { rooms[1]} from the {room.Value}");
                                 }
 
-
-                                if (!IsValid(room.Value))
-                                {
-                                    isRunning = false;
-                                    break;
-                                }
                             }
                             else
                             {
@@ -90,13 +83,13 @@ namespace MusicalRooms
                                     if (CurrentLocation.TryUpdate(person.FullName, rooms[room.Key + 1], rooms[room.Key]))
                                         Output.Add($"{person.FullName} has moved to the { rooms[room.Key + 1]} from the {room.Value}");
                                 }
-
-                                if (!IsValid(room.Value))
-                                {
-                                    isRunning = false;
-                                    break;
-                                }
                             }
+                        }
+
+                        if (!IsValid(room.Value))
+                        {
+                            isRunning = false;
+                            break;
                         }
                     }
                 }
