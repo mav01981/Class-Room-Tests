@@ -62,7 +62,6 @@ namespace MusicalRooms
             Assert.Equal("Kitchen", newEvent.Locations.Select(x => x.Value).First());
         }
 
-
         [Fact]
         public void Users_Meet_In_The_Study()
         {
@@ -109,6 +108,7 @@ namespace MusicalRooms
             }
             Assert.True(newEvent.Locations.Where(x => x.Value.Contains("Study")).Count() == people.Count());
         }
+
         [Fact]
         public void Users_Meet_In_The_Study_Two_People_TravelingTogether()
         {
@@ -235,9 +235,8 @@ namespace MusicalRooms
             Assert.True(newEvent.Locations.Where(x => x.Value.Contains("Study")).Count() == people.Count());
         }
 
-
         [Fact]
-        public void Users_Meet_In_The_Study_Four_People_TravelingTogether()
+        public void Users_Meet_In_The_Study_And()
         {
             var rooms = new Dictionary<int, string>()
             {
@@ -311,6 +310,56 @@ namespace MusicalRooms
             {
                 output.WriteLine(text);
             }
+            Assert.True(newEvent.Locations.Where(x => x.Value.Contains("Study")).Count() == people.Count());
+        }
+
+        [Fact]
+        public void Users_Meet_In_Study_from_Two_Different_Directions()
+        {
+            var rooms = new Dictionary<int, string>()
+            {
+                { 1,"Kitchen" },
+                { 2,"Study" },
+                { 3,"Living Room" }
+            };
+
+            var people = new Dictionary<int, Person>()
+            {
+                {
+                    1,
+                    new Person(){
+                        FullName="Tim",
+                        Rules = new Rule()
+                        {
+                            Wait=15000,
+                            RoomId =2,
+                            Direction= Direction.Forward
+                        }
+                    }
+                },
+                  {
+                    2,
+                    new Person(){
+                        FullName="James",
+                        Rules = new Rule()
+                        {
+                            Wait=7000,
+                            RoomId =1,
+                            Direction = Direction.Backward
+                        }
+                    }
+                }
+
+            };
+
+            var newEvent = new Events(people, rooms);
+            newEvent.Start();
+
+            foreach (var text in newEvent.Output)
+            {
+                output.WriteLine(text);
+            }
+
             Assert.True(newEvent.Locations.Where(x => x.Value.Contains("Study")).Count() == people.Count());
         }
     }

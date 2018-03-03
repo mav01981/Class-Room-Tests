@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MusicalRooms
 {
+    /// <summary>
+    /// Using Concurrent Dictionary to store a persons locatiom.
+    /// </summary>
     public class Events
     {
         private ConcurrentDictionary<string, string> CurrentLocation;
@@ -49,7 +52,7 @@ namespace MusicalRooms
         }
         private bool IsValid(string room)
         {
-            if (CurrentLocation.Where(x => x.Value.Contains(room)).Count() == people.Count()) 
+            if (CurrentLocation.Where(x => x.Value.Contains(room)).Count() == people.Count())
                 return false;
 
             return true;
@@ -58,7 +61,7 @@ namespace MusicalRooms
         {
             while (isRunning)
             {
-                foreach (var room in rooms)
+                foreach (var room in person.Rules.Direction == Direction.Forward ? rooms : rooms.Reverse())
                 {
                     Thread.Sleep(person.Rules.Wait);
 
@@ -74,7 +77,6 @@ namespace MusicalRooms
                                     if (CurrentLocation.TryUpdate(person.FullName, rooms[1], rooms[room.Key]))
                                         Output.Add($"{person.FullName} has moved to the { rooms[1]} from the {room.Value}");
                                 }
-
                             }
                             else
                             {
