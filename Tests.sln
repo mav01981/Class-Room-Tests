@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimeFactors", "PrimeFactor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FizzBuzz", "FizzBuzz\FizzBuzz.csproj", "{7E182450-8274-4C6F-B9CE-F04FC2EA39A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculator", "StringCalculator\StringCalculator.csproj", "{69C51486-CE4F-493E-A231-6C9F1CA7CF0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringCalculator", "StringCalculator\StringCalculator.csproj", "{69C51486-CE4F-493E-A231-6C9F1CA7CF0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineSweeper", "MineSweeper\MineSweeper.csproj", "{36002F1E-75C4-41A0-A3A0-15F4009D75CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MineSweeper", "MineSweeper\MineSweeper.csproj", "{36002F1E-75C4-41A0-A3A0-15F4009D75CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{016A8EE5-852E-4FB0-B9AC-2544FA0C59A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicalRooms", "MusicalRooms\MusicalRooms.csproj", "{95995AB6-27E4-400D-8846-B4E7479AAD7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{36002F1E-75C4-41A0-A3A0-15F4009D75CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36002F1E-75C4-41A0-A3A0-15F4009D75CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36002F1E-75C4-41A0-A3A0-15F4009D75CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{016A8EE5-852E-4FB0-B9AC-2544FA0C59A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{016A8EE5-852E-4FB0-B9AC-2544FA0C59A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{016A8EE5-852E-4FB0-B9AC-2544FA0C59A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{016A8EE5-852E-4FB0-B9AC-2544FA0C59A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95995AB6-27E4-400D-8846-B4E7479AAD7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95995AB6-27E4-400D-8846-B4E7479AAD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95995AB6-27E4-400D-8846-B4E7479AAD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95995AB6-27E4-400D-8846-B4E7479AAD7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

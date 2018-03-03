@@ -5,44 +5,44 @@ namespace MineSweeper
 {
     public class MineSweeper
     {
-        Map gridSchema;
-        ICollection<Coordinate> mines;
+        Board board;
+        Coordinate[] mines;
         List<string> mineMap = new List<string>();
 
-        internal MineSweeper(Map GridSchema, ICollection<Coordinate> mineLocations)
+        internal MineSweeper(Board boardDimensions, Coordinate[] mineLocations)
         {
-            gridSchema = GridSchema;
-            mines = mineLocations;
+            this.board = boardDimensions;
+            this.mines = mineLocations;
         }
         
-        internal List<string> Build()
+        internal List<string> Play()
         {
-            for (int row = 1; row <= this.gridSchema.rows; row++)
+            for (int Y = 1; Y <= this.board.height; Y++)
             {
                 string gridLine = string.Empty;
 
-                for (int column = 1; column <= this.gridSchema.columns; column++)
+                for (int X = 1; X <= this.board.width; X++)
                 {
-                    if (mines.Where(x => x.x == column && x.y == row).Any())
+                    if (mines.Where(x => x.x == X && x.y == Y).Any())
                     {
-                        if (column < this.gridSchema.columns)
+                        if (X < this.board.width)
                         {
                             gridLine = gridLine + "|" + "*";
                         }
-                        else if (column == this.gridSchema.columns)
+                        else if (X == this.board.width)
                         {
                             gridLine = gridLine + "|" + "*" + "|";
                         }
                     }
                     else
                     {
-                        if (column < this.gridSchema.columns)
+                        if (X < this.board.width)
                         {
-                            gridLine = gridLine + "|" + lookupMine(row, column).ToString();
+                            gridLine = gridLine + "|" + findMine(Y, X).ToString();
                         }
-                        else if (column == this.gridSchema.columns)
+                        else if (X == this.board.width)
                         {
-                            gridLine = gridLine + "|" + lookupMine(row, column).ToString() + "|";
+                            gridLine = gridLine + "|" + findMine(Y, X).ToString() + "|";
                         }
                     }
                 }
@@ -52,8 +52,7 @@ namespace MineSweeper
             return mineMap;
         }
 
-
-        int lookupMine(int row, int column)
+        int findMine(int row, int column)
         {
             int counter = 0;
 
@@ -99,10 +98,10 @@ namespace MineSweeper
     }
 }
 
-public class Map
+public class Board
 {
-    public int columns;
-    public int rows;
+    public int width;
+    public int height;
 }
 
 public class Coordinate
@@ -110,4 +109,3 @@ public class Coordinate
     public int x;
     public int y;
 }
-

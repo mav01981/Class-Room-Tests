@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using Xunit;
 
 namespace MineSweeper
@@ -10,21 +7,17 @@ namespace MineSweeper
         [Fact]
         public void Test_2_by_2_Grid()
         {
-            var map = new Map()
+            var board = new Board()
             {
-                columns = 2,
-                rows = 2
+                height = 2,
+                width = 2
             };
 
-            var mines = new List<Coordinate>()
-            {
-                new Coordinate(){x =1,y=1},
-                new Coordinate(){x =2,y=2},
-            };
+            Coordinate[] mines = { new Coordinate() { x = 1, y = 1 }, new Coordinate() { x = 2, y = 2 } };
 
-            var mineInstance = new MineSweeper(map, mines);
+            var mineInstance = new MineSweeper(board, mines);
 
-            var lines = mineInstance.Build();
+            var lines = mineInstance.Play();
 
             Assert.Equal(lines[0], "|*|2|");
             Assert.Equal(lines[1], "|2|*|");
@@ -33,13 +26,13 @@ namespace MineSweeper
         [Fact]
         public void Test_4_by_4_Grid()
         {
-            var map = new Map()
+            var map = new Board()
             {
-                columns = 4,
-                rows = 4
+                height = 4,
+                width = 4
             };
 
-            var mines = new List<Coordinate>()
+            Coordinate[] mines =
             {
                 new Coordinate(){x =2,y=3},
                 new Coordinate(){x =3,y=3},
@@ -48,7 +41,7 @@ namespace MineSweeper
 
             var mineInstance = new MineSweeper(map, mines);
 
-            var lines = mineInstance.Build();
+            var lines = mineInstance.Play();
 
             Assert.Equal(lines[0], "|0|0|1|*|");
             Assert.Equal(lines[1], "|1|2|3|2|");
